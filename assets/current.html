@@ -1,0 +1,551 @@
+<html>
+<head>
+<title>main help</title>
+<script src="tab.js"></script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="github-markdown.css" rel="stylesheet"/>
+<style>
+        body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding-top: 15px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 15px;
+    }
+</style>
+</head>
+<body>
+<article class="markdown-body">
+<h1>main help</h1>
+
+<h3>There are three high level modes:</h3>
+
+<p><strong>OUTLINE,</strong> <strong>DATABASE</strong> and <strong>EDITOR.</strong></p>
+
+<p><strong>TAB</strong> cycles between <strong>OUTLINE</strong> and <strong>DATABASE</strong> modes.</p>
+
+<p><strong>SHIFT_TAB</strong> cycles between <strong>OUTLINE</strong> and <strong>SEARCH</strong> modes.</p>
+
+<p><strong>:[e]dit</strong> puts you in <strong>EDITOR</strong> mode and quiting <strong>EDITOR</strong> mode with either <strong>:q</strong> or <strong>:x</strong> puts you in <strong>OUTLINE</strong> mode.</p>
+
+<h3>OUTLINE and EDITOR mode support the following somewhat Vim-like modes:</h3>
+
+<ul>
+<li><strong>NORMAL</strong></li>
+<li><strong>INSERT</strong></li>
+<li><strong>COMMAND_LINE</strong></li>
+<li><strong>VISUAL_LINE</strong> //not available in OUTLINE</li>
+<li><strong>VISUAL_BLOCK</strong> //not available in OUTLINE</li>
+<li><strong>VISUAL</strong></li>
+<li><strong>REPLACE</strong></li>
+<li><strong>DATABASE</strong> //not available in Editor</li>
+<li><strong>FILE_DISPLAY</strong>  //not available in Editor</li>
+<li><strong>NO_ROWS</strong> -> only editing possible is inserting a new row</li>
+<li><strong>SEARCH</strong> -> shows titles and notes with highlighting</li>
+</ul>
+
+
+<h3>COMMAND_LINE mode supports the following:</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd</th>
+<th style="text-align:left;">action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">[c]ontext(s)</td>
+<td style="text-align:left;">show context list</td>
+</tr>
+<tr>
+<td style="text-align:left;">ESC</td>
+<td style="text-align:left;">switch to <strong>NORMAL</strong> mode</td>
+</tr>
+<tr>
+<td style="text-align:left;">[delm]arks</td>
+<td style="text-align:left;">remove marks</td>
+</tr>
+<tr>
+<td style="text-align:left;">[delk]eywords</td>
+<td style="text-align:left;">delete marked or current entry&rsquo;s keywords</td>
+</tr>
+<tr>
+<td style="text-align:left;">[c]ontexts</td>
+<td style="text-align:left;">show context list</td>
+</tr>
+<tr>
+<td style="text-align:left;">[e]dit</td>
+<td style="text-align:left;">edit the note of the entry <strong>(EDITOR</strong> mode)</td>
+</tr>
+<tr>
+<td style="text-align:left;">[f]folders</td>
+<td style="text-align:left;">show folder list</td>
+</tr>
+<tr>
+<td style="text-align:left;">join</td>
+<td style="text-align:left;">join selected folder and context and show results</td>
+</tr>
+<tr>
+<td style="text-align:left;">merge</td>
+<td style="text-align:left;">merge notes of marked entries</td>
+</tr>
+<tr>
+<td style="text-align:left;">[n]ew, O</td>
+<td style="text-align:left;">create a new entry</td>
+</tr>
+<tr>
+<td style="text-align:left;">[o]pen</td>
+<td style="text-align:left;">open a context</td>
+</tr>
+<tr>
+<td style="text-align:left;">openfolder, of</td>
+<td style="text-align:left;">open a folder</td>
+</tr>
+<tr>
+<td style="text-align:left;">[q]uit</td>
+<td style="text-align:left;">with ! exit without writing changes</td>
+</tr>
+<tr>
+<td style="text-align:left;">readfile</td>
+<td style="text-align:left;">read a file into note - <code>:readfile /home/slzatz/text.txt</code></td>
+</tr>
+<tr>
+<td style="text-align:left;">recent</td>
+<td style="text-align:left;">show recent new and modified entries</td>
+</tr>
+<tr>
+<td style="text-align:left;">[r]efresh</td>
+<td style="text-align:left;">refresh the outline</td>
+</tr>
+<tr>
+<td style="text-align:left;">set spell/nospell</td>
+<td style="text-align:left;">turn spellng on or off</td>
+</tr>
+<tr>
+<td style="text-align:left;">[sync]hronize</td>
+<td style="text-align:left;">sync local sqlite db with aws postgresql db</td>
+</tr>
+<tr>
+<td style="text-align:left;">vim</td>
+<td style="text-align:left;">open note in vim</td>
+</tr>
+<tr>
+<td style="text-align:left;">[w]write</td>
+<td style="text-align:left;">write changes</td>
+</tr>
+<tr>
+<td style="text-align:left;">x</td>
+<td style="text-align:left;">write changes and quit</td>
+</tr>
+</tbody>
+</table>
+
+
+<dl>
+<dt>arrow keys</dt>
+<dd>(select contexts)</dd>
+<dt>update</dt>
+<dd>update solr database</dd>
+<dt>dbase</dt>
+<dd>switch to DATABASE mode</dd>
+<dt>[e]dit</dt>
+<dd>edit item/entry note</dd>
+<dt>update</dt>
+<dd>update solr database</dd>
+<dt>[s]earch, [fin]d</dt>
+<dd>search entries (titles, notes, keywords)</dd>
+<dt>[f]older(s)</dt>
+<dd>show folder list</dd>
+<dt>movetocontext, mtc</dt>
+<dd>move item to new context</dd>
+<dt>movetofolder, mtf</dt>
+<dd>move item to new folder</dd>
+<dt>[n]ew, O</dt>
+<dd>new item</dd>
+<dt>[o]pen</dt>
+<dd>open a context</dd>
+<dt>openfolder, of</dt>
+<dd>open a folder</dd>
+<dt>recent</dt>
+<dd>show recent new and changed items</dd>
+<dt>[r]efresh</dt>
+<dd>refresh view</dd>
+<dt>readfile</dt>
+<dd>read a file into the note field of an entry <code>:readfile home/slzatz/text.txt</code></dd>
+<dt>saveoutline, so</dt>
+<dd>saveoutline <code>so outline.txt</code></dd>
+</dl>
+
+<ul>
+<li>search -> move into SEARCH mode (if active search)</li>
+</ul>
+
+
+<dl>
+<dt>set spell/nospell</dt>
+<dd>turn spelling on and off
+=[s]how]all, show, s
+toggle show completed/deleted</dd>
+<dt>sort</dt>
+<dd>sort by added, created, modified, startdate</dd>
+<dt>sync, synch</dt>
+<dd>sinch sqlite db with aws postgres db
+=synch_[test]
+show what will happen with sync but don&rsquo;t do it</dd>
+<dt>vim</dt>
+<dd>open vim (works from both outline and editor mode)
+=[q]uit
+with ! exit without writing changes</dd>
+<dt>w</dt>
+<dd>write changes</dd>
+<dt>x</dt>
+<dd>in <strong>EDITOR</strong> mode write changes and return to <strong>OUTLINE</strong> mode; in <strong>OUTLINE</strong> mode write changes and quit</dd>
+</dl>
+
+<h3>NORMAL MODE COMMANDS</h3>
+
+<p>(Available in both <strong>EDITOR</strong> and <strong>OUTLINE</strong> mode except as noted)</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd </th>
+<th style="text-align:left;"> notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">:</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">~</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">$</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">a, A</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">b, e, w</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">cw, caw, c$</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">dd, de dw, daw, d$</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">gg, G</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">i, I</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">r</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">s</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left;">x</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>OUTLINE mode also supports</h4>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd </th>
+<th style="text-align:left;"> notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">m</td>
+<td style="text-align:left;">mark the entry</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>navigation</h4>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">h, j, k, l</td>
+</tr>
+<tr>
+<td style="text-align:left;">arrow keys</td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li><p>CTRL-S -> saves file to lm_temp (should pick file name)</p></li>
+<li><p>\r -> in outline mode update the row the cursor is in if it has changed</p></li>
+</ul>
+
+
+<h3>Editor mode also supports:</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd</th>
+<th style="text-align:left;">action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">*</td>
+<td style="text-align:left;">next match</td>
+</tr>
+<tr>
+<td style="text-align:left;">p</td>
+<td style="text-align:left;">paste</td>
+</tr>
+<tr>
+<td style="text-align:left;">u</td>
+<td style="text-align:left;">undo</td>
+</tr>
+<tr>
+<td style="text-align:left;">v</td>
+<td style="text-align:left;">visual</td>
+</tr>
+<tr>
+<td style="text-align:left;">yy</td>
+<td style="text-align:left;">yank</td>
+</tr>
+<tr>
+<td style="text-align:left;">J</td>
+<td style="text-align:left;">join [count] lines</td>
+</tr>
+<tr>
+<td style="text-align:left;">o, O</td>
+<td style="text-align:left;">begin a new line below/above cursor, repeat [count] times</td>
+</tr>
+<tr>
+<td style="text-align:left;">z</td>
+<td style="text-align:left;">spelling suggestions</td>
+</tr>
+<tr>
+<td style="text-align:left;">&lt;&lt; <code>&gt;&gt;</code></td>
+<td style="text-align:left;">indent/dedent</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>word markup</h4>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd</th>
+<th style="text-align:left;">action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">xtrl-b</td>
+<td style="text-align:left;">bold</td>
+</tr>
+<tr>
+<td style="text-align:left;">ctrl-i</td>
+<td style="text-align:left;">italics</td>
+</tr>
+<tr>
+<td style="text-align:left;">ctrl-e</td>
+<td style="text-align:left;">emphasis</td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>Also in Outline mode:</li>
+<li>m - toggle mark (only available in OUTLINE mode)</li>
+</ul>
+
+
+<h3>All VISUAL modes support</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">h, j, k, l</td>
+</tr>
+<tr>
+<td style="text-align:left;">arrow keys</td>
+</tr>
+<tr>
+<td style="text-align:left;">x</td>
+</tr>
+<tr>
+<td style="text-align:left;">ESC</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>VISUAL LINE and VISUAL mode support</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">y</td>
+</tr>
+<tr>
+<td style="text-align:left;">p</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>VISUAL LINE aslo supports</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;"><code>&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:left;"><code>&lt;</code></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>VISUAL BLOCK mode also supports</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">I</td>
+</tr>
+<tr>
+<td style="text-align:left;">A</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>DATABASE mode</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">cmd </th>
+<th style="text-align:left;"> action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">x</td>
+<td style="text-align:left;">toggle completed</td>
+</tr>
+<tr>
+<td style="text-align:left;">f</td>
+<td style="text-align:left;">display folders</td>
+</tr>
+<tr>
+<td style="text-align:left;">c</td>
+<td style="text-align:left;">display contexts</td>
+</tr>
+<tr>
+<td style="text-align:left;">d</td>
+<td style="text-align:left;">toggle deleted</td>
+</tr>
+<tr>
+<td style="text-align:left;">*</td>
+<td style="text-align:left;">toggle starred</td>
+</tr>
+<tr>
+<td style="text-align:left;">i</td>
+<td style="text-align:left;">info</td>
+</tr>
+<tr>
+<td style="text-align:left;">r</td>
+<td style="text-align:left;">refresh</td>
+</tr>
+<tr>
+<td style="text-align:left;">s</td>
+<td style="text-align:left;">toggle show completed/deleted</td>
+</tr>
+<tr>
+<td style="text-align:left;">m</td>
+<td style="text-align:left;">toggle mark</td>
+</tr>
+<tr>
+<td style="text-align:left;">t</td>
+<td style="text-align:left;">touch the task</td>
+</tr>
+<tr>
+<td style="text-align:left;">0, HOME</td>
+<td style="text-align:left;">go to beginning of title</td>
+</tr>
+<tr>
+<td style="text-align:left;">$, END </td>
+<td style="text-align:left;">go to end of title</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>v - render in browser
+ARROW LEFT - cycles between DATABASE and SEARCH mode (if there is an active search)
+ARROW RIGHT - switch to NORMAL mode
+ARROW UP/DOWN</p>
+</article></body><html>
