@@ -9,9 +9,6 @@ Note that you need to have a file that is contained in assets on the command lin
 To clone the repo and build, run the following:
 
 ```shell
-git clone https://github.com/ultralight-ux/ultralight-quick-start
-cd ultralight-quick-start
-mkdir build
 cd build
 cmake ..
 cmake --build . --config Release
