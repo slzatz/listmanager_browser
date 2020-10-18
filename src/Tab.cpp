@@ -16,16 +16,8 @@ Tab::~Tab() {
   view()->set_load_listener(nullptr);
 }
 
-void Tab::Resize(uint32_t width, uint32_t height) {
-  container_width_ = width;
-  container_height_ = height;
-
-  uint32_t content_height = container_height_;
-  
-  if (content_height < 1)
-    content_height = 1;
-
-  overlay_->Resize(container_width_, content_height);
+void Tab::Resize(int width, int height) {
+  overlay_->Resize(width, height);
 }
 
 // triggered by ViewListener

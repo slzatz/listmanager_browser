@@ -31,7 +31,9 @@ void UI::OnResize(uint32_t width, uint32_t height) {
 
   overlay_->Resize(window->width(), UI_HEIGHT);
 
-  tab->Resize(window->width(), (uint32_t)tab_height);
+  if (tab_created) {
+  tab->Resize(window->width(), tab_height);
+  }
 }
 
 void UI::OnDOMReady(ultralight::View* caller,
@@ -39,6 +41,8 @@ void UI::OnDOMReady(ultralight::View* caller,
                     bool is_main_frame,
                     const String& url) {
 
+  //CreateNewTab();
+  //tab_created = true;
   // Set the context for all subsequent JS* calls
   //SetJSContext(view()->js_context());
   Ref<JSContext> context = view()->LockJSContext();
@@ -71,7 +75,10 @@ void UI::OnDOMReady(ultralight::View* caller,
   //global["OnNoteScroll"] = BindJSCallback(&UI::OnNoteScroll);
   global["OnQuit"] = BindJSCallback(&UI::OnQuit);
 
-  CreateNewTab();
+  //might want to put this into OnWindowObjectReady (fires before OnDOMReady
+  // see https://docs.ultralig.ht/docs/using-the-ondomready-event
+  CreateNewTab(); //might want to put this into OnWindowObjectReady (fires before OnDOMReady
+  tab_created = true;
 }
 
 void UI::OnBack(const JSObject& obj, const JSArgs& args) {
@@ -222,7 +229,7 @@ void UI::CreateNewTab() {
     tab_height = 1;
 
   tab = std::unique_ptr<Tab>(new Tab(this, window->width(), (uint32_t)tab_height, 0, UI_HEIGHT));
-  tab->view()->LoadURL("file:///current.html");
+  //tab->view()->LoadURL("file:///current.html");
   tab->view()->LoadURL(file_.c_str());
 }
 

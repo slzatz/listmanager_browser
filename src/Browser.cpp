@@ -2,22 +2,37 @@
 #include <Ultralight/platform/Platform.h>
 #include <Ultralight/platform/Config.h>
 #include <Ultralight/Renderer.h>
+#include <AppCore/Platform.h> /// for Config which doesn't seem to do anything
+#include <Ultralight/Ultralight.h> ///ditto
 #include <zmq.hpp>
 #include <sstream>
 #include <fcntl.h>
 #include <unistd.h>
 
-zmq::context_t context (1);
-zmq::socket_t subscriber (context, ZMQ_SUB);
+zmq::context_t context(1);
+zmq::socket_t subscriber(context, ZMQ_SUB);
 
 struct flock lock;
 
 Browser::Browser(char *f_) {
+  app_ = App::Create();
+  window_ = Window::Create(app_->main_monitor(), 500, 500, false, 
+    kWindowFlags_Resizable | kWindowFlags_Titled | kWindowFlags_Maximizable);
 
   /*
+  Config config;
+  config.enable_javascript = true;
+  config.device_scale = window_->scale();
+ // config.scroll_timer_delay = 1.0 / (ultralight::mode->refreshRate);
+ // config.animation_timer_delay = 1.0 / (ultralight::mode->refreshRate);
+  //config.use_gpu_renderer = true;
+  //config.resource_path = "./resources/";
+  config.cache_path = "/home/slzatz/.cache/listmanager";
+  Platform::instance().set_config(config);
+  */
+
   subscriber.connect("tcp://localhost:5556");
   subscriber.setsockopt(ZMQ_SUBSCRIBE, "", 0);
-  */
 
   /* variables to monitor changes in current.html */ 
   ff = "file:///";
@@ -34,10 +49,11 @@ Browser::Browser(char *f_) {
   lock.l_len = 0;
   lock.l_pid = getpid();
 
-  app_ = App::Create();
+  //app_ = App::Create();
     
-  window_ = Window::Create(app_->main_monitor(), 1024, 768, false, 
-    kWindowFlags_Resizable | kWindowFlags_Titled | kWindowFlags_Maximizable);
+  //window_ = Window::Create(app_->main_monitor(), 1024, 768, false, 
+  //window_ = Window::Create(app_->main_monitor(), 500, 500, false, 
+  //  kWindowFlags_Resizable | kWindowFlags_Titled | kWindowFlags_Maximizable);
 
   //window_->SetTitle("Ultralight Sample - Browser");
 

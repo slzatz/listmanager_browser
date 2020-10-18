@@ -17,7 +17,7 @@ public:
                 
   Ref<View> view() { return overlay_->view(); }
 
-  void Resize(uint32_t width, uint32_t height);
+  void Resize(int width, int height);
 
   // Inherited from Listener::View
   virtual void OnChangeURL(View* caller, const String& url) override;

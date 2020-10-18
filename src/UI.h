@@ -77,6 +77,7 @@ protected:
   JSFunction updateForward;
   JSFunction updateLoading;
   //JSFunction updateURL;
+  bool tab_created = false;
 
   friend class Tab;
 };
