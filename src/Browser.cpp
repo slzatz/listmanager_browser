@@ -8,6 +8,7 @@
 #include <sstream>
 #include <fcntl.h>
 #include <unistd.h>
+#include <string_view>
 
 zmq::context_t context(1);
 zmq::socket_t subscriber(context, ZMQ_SUB);
@@ -97,6 +98,9 @@ void Browser::OnUpdate() {
   auto result = subscriber.recv(update, zmq::recv_flags::dontwait);
   if (result)  {
     char *scroll = static_cast<char*>(update.data());
+    if (std::string_view(scroll) == "quit") {
+      ui_->quit();
+    }
     char s[50];
     snprintf (s, 50, "scroll: %s", scroll);
     ui_->updateURL({s}); //for debugging - using address bar to print results

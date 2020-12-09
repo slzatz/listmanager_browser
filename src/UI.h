@@ -55,6 +55,8 @@ class UI : public WindowListener,
   double scroll = 0;
   double zoom = 1.0;
 
+  void quit(void);
+
 protected:
   void CreateNewTab();
   void UpdateTabURL(const String& url);

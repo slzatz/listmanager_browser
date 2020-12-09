@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.3.2)
 
 project(lm_browser C CXX)
-set (CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 
 find_package(ZeroMQ QUIET)
 

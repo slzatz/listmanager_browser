@@ -222,6 +222,10 @@ void UI::OnQuit(const JSObject& obj, const JSArgs& args) {
   App::instance()->Quit();
 }      
 
+void UI::quit(void) {
+  App::instance()->window()->Close();
+  App::instance()->Quit();
+}      
 void UI::CreateNewTab() {
   RefPtr<Window> window = App::instance()->window();
   int tab_height = window->height() - UI_HEIGHT;
